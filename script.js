@@ -14,6 +14,7 @@ function getComputerChoice() {
     } else {
         computerChoice = "Scissors";
     }
+    return computerChoice;
 }
 
 
@@ -35,7 +36,67 @@ function getHumanChoice() {
             humanChoice = "Scissors";
         }
     }
+    return humanChoice;
 }
 
 let humanScore = 0;
 let computerScore = 0;
+
+
+// create function to play 1 round
+// compare human's and computer's choices
+// rock beats scissors, paper beats rock, scissors beats paper
+// log the winner of the round
+// add 1 to the score of the winner. 
+
+function playRound() {
+    switch (getComputerChoice()) {
+        case "Rock":
+            switch (getHumanChoice()) {
+                case "Rock":
+                    console.log("It's a tie, no point awarded.");
+                    break;
+                case "Paper":
+                    console.log("Player wins, paper beats rock!.");
+                    humanScore++;
+                    break;
+                case "Scissors":
+                    console.log("Computer wins, rock beats scissors!");
+                    computerScore++;
+                    break;
+            }
+            break;
+        case "Paper":
+            switch (getHumanChoice()) {
+                case "Rock":
+                    console.log("Computer wins, paper beats rock!");
+                    computerScore++;
+                    break;
+                case "Paper":
+                    console.log("It's a tie, no point awarded.");;
+                    break;
+                case "Scissors":
+                    console.log("Player wins, scissors beat paper!");
+                    humanScore++;
+                    break;
+            }
+            break;
+        case "Scissors":
+            switch (getHumanChoice()) {
+                case "Rock":
+                    console.log("Player wins, rock beats scissors!");
+                    humanScore++;
+                    break;
+                case "Paper":
+                    console.log("Computer wins, scissors beat paper!");
+                    computerScore++;
+                    break;
+                case "Scissors":
+                    console.log("It's a tie, no point awarded.");
+                    break;
+            }
+            break;
+    }
+}
+
+playRound();
